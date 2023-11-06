@@ -1,0 +1,28 @@
+{
+  "name": "@datadayrepos/usevueshared",
+  "version": "10.5.0-2",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datadayrepos/front-usevue.git",
+    "directory": "packages/shared"
+  },
+  "keywords": [
+    "vue",
+    "vue-use",
+    "utils"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.cjs"
+    },
+    "./*": "./*"
+  },
+  "main": "./index.cjs",
+  "module": "./index.mjs",
+  "unpkg": "./index.iife.min.js",
+  "jsdelivr": "./index.iife.min.js",
+  "types": "./index.d.cts"
+}

@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "jsx": "preserve",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "baseUrl": ".",
+    "rootDir": ".",
+    "module": "esnext",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@vueuse/core": ["./packages/core/index.ts"],
+      "@vueuse/core/*": ["./packages/core/*"],
+      "@vueuse/shared": ["./packages/shared/index.ts"],
+      "@vueuse/shared/*": ["./packages/shared/*"]
+    },
+    "resolveJsonModule": true,
+    "types": [
+      "vitest",
+    ],
+    "strict": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "declaration": true,
+    "declarationDir": "./types",
+    "esModuleInterop": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "*.ts",
+    "packages",
+  ],
+  "exclude": [
+    "unocss.config.ts",
+    "node_modules",
+    "**/*.md",
+    "**/dist",
+    "packages/.test",
+    "packages/_docs"
+  ]
+}
