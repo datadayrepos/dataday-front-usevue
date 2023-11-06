@@ -43,11 +43,10 @@ pnpm i
 
 ## Publish
 
-Its a monorepo. Install with:
+Build and publish:
 ```sh
 # Build
 pnpm run build
-pnpm run build:types
 
 # Login to npm
 npm login
