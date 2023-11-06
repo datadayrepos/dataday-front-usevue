@@ -1,4 +1,4 @@
-# front-usevue
+# dataday-front-usevue
 Light fork of vue use library
 Integrated external dependencies and functionalities used in our environments.
 
