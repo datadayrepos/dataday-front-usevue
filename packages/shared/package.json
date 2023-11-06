@@ -1,6 +1,6 @@
 {
   "name": "@datadayrepos/usevueshared",
-  "version": "10.5.0-2",
+  "version": "10.5.0-3",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -24,5 +24,8 @@
   "module": "./index.mjs",
   "unpkg": "./index.iife.min.js",
   "jsdelivr": "./index.iife.min.js",
-  "types": "./index.d.cts"
+  "types": "./index.d.cts",
+  "dependencies": {
+    "vue": "^3.3.4"
+  }
 }

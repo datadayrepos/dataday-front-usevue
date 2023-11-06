@@ -8,15 +8,13 @@
     "module": "esnext",
     "moduleResolution": "Bundler",
     "paths": {
-      "@vueuse/core": ["./packages/core/index.ts"],
-      "@vueuse/core/*": ["./packages/core/*"],
-      "@vueuse/shared": ["./packages/shared/index.ts"],
-      "@vueuse/shared/*": ["./packages/shared/*"]
+      "@datadayrepos/usevuecore": ["./packages/core/index.ts"],
+      "@datadayrepos/usevuecore/*": ["./packages/core/*"],
+      "@datadayrepos/usevueshared": ["./packages/shared/index.ts"],
+      "@datadayrepos/usevueshared/*": ["./packages/shared/*"]
     },
     "resolveJsonModule": true,
-    "types": [
-      "vitest",
-    ],
+    "types": ["node"],
     "strict": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,
@@ -29,7 +27,7 @@
   },
   "include": [
     "*.ts",
-    "packages",
+    "packages"
   ],
   "exclude": [
     "unocss.config.ts",

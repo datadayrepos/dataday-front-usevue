@@ -3,7 +3,7 @@
 // Not used. using AbyMediaStream instead
 /* this implementation is original ported from https://github.com/logaretm/vue-use-web by Abdelrahman Awad */
 
-import type { MaybeRef } from '@vueuse/shared'
+import type { MaybeRef } from '@datadayrepos/usevueshared'
 import type { Ref } from 'vue'
 import { ref, shallowRef, watch } from 'vue'
 import { useSupported } from '../useSupported'

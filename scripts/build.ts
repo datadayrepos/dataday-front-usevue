@@ -6,7 +6,6 @@ import { fileURLToPath } from 'node:url'
 import fs from 'fs-extra'
 import fg from 'fast-glob'
 import { consola } from 'consola'
-import { metadata } from '@vueuse/metadata'
 import { packages } from '../meta/packages'
 import { version } from '../package.json'
 

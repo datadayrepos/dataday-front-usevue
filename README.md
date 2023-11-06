@@ -34,6 +34,27 @@ https://github.com/vueuse/vueuse/tree/main
 
 https://vueuse.org/functions.html
 
+## Maintain
+
+Its a monorepo. Install with:
+```sh
+pnpm i
+```
+
+## Publish
+
+Its a monorepo. Install with:
+```sh
+# Build
+pnpm run build
+pnpm run build:types
+
+# Login to npm
+npm login
+
+# publish
+pnpm publish:ci
+```
 
 ## License
 

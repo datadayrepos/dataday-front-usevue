@@ -21,8 +21,8 @@ export default defineConfig(async () => {
     ],
     resolve: {
       alias: {
-        '@vueuse/shared': resolve(__dirname, 'shared/index.ts'),
-        '@vueuse/core': resolve(__dirname, 'core/index.ts'),
+        '@datadayrepos/usevueshared': resolve(__dirname, 'shared/index.ts'),
+        '@datadayrepos/usevuecore': resolve(__dirname, 'core/index.ts'),
       },
       dedupe: [
         'vue',
@@ -31,8 +31,9 @@ export default defineConfig(async () => {
     },
     optimizeDeps: {
       exclude: [
-        '@vueuse/shared',
-        '@vueuse/core',
+        'vue',
+        '@datadayrepos/usevueshared',
+        '@datadayrepos/usevuecore',
         'body-scroll-lock',
       ],
       include: [

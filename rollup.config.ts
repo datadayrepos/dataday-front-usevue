@@ -6,7 +6,6 @@ import json from '@rollup/plugin-json'
 import { PluginPure as pure } from 'rollup-plugin-pure'
 import type { OutputOptions, Plugin, RollupOptions } from 'rollup'
 import fg from 'fast-glob'
-import { functions } from '@vueuse/metadata'
 import { packages } from './meta/packages'
 
 const configs: RollupOptions[] = []
@@ -18,9 +17,9 @@ const pluginPure = pure({
 })
 
 const externals = [
-  '@vueuse/shared',
-  '@vueuse/core',
-  '@vueuse/metadata',
+  'vue',
+  '@datadayrepos/usevueshared',
+  '@datadayrepos/usevuecore',
 ]
 
 function esbuildMinifer(options: ESBuildOptions) {
@@ -37,8 +36,9 @@ for (const { globals, name, external, submodules, iife, build, cjs, mjs, dts, ta
     continue
 
   const iifeGlobals = {
-    '@vueuse/shared': 'VueUse',
-    '@vueuse/core': 'VueUse',
+    'vue': 'Vue',
+    '@datadayrepos/usevueshared': 'VueUse',
+    '@datadayrepos/usevuecore': 'VueUse',
     ...(globals || {}),
   }
 
@@ -52,8 +52,6 @@ for (const { globals, name, external, submodules, iife, build, cjs, mjs, dts, ta
     const input = fn === 'index'
       ? `packages/${name}/index.ts`
       : `packages/${name}/${fn}/index.ts`
-
-    const info = functions.find(i => i.name === fn)
 
     const output: OutputOptions[] = []
 
@@ -120,46 +118,6 @@ for (const { globals, name, external, submodules, iife, build, cjs, mjs, dts, ta
           { file: `packages/${name}/dist/${fn}.d.cts` },
           { file: `packages/${name}/dist/${fn}.d.mts` },
           { file: `packages/${name}/dist/${fn}.d.ts` }, // for node10 compatibility
-        ],
-        plugins: [
-          pluginDts,
-        ],
-        external: [
-          ...externals,
-          ...(external || []),
-        ],
-      })
-    }
-
-    if (info?.component) {
-      configs.push({
-        input: `packages/${name}/${fn}/component.ts`,
-        output: [
-          {
-            file: `packages/${name}/dist/${fn}/component.cjs`,
-            format: 'cjs',
-          },
-          {
-            file: `packages/${name}/dist/${fn}/component.mjs`,
-            format: 'es',
-          },
-        ],
-        plugins: [
-          pluginEsbuild,
-          pluginPure,
-        ],
-        external: [
-          ...externals,
-          ...(external || []),
-        ],
-      })
-
-      configs.push({
-        input: `packages/${name}/${fn}/component.ts`,
-        output: [
-          { file: `packages/${name}/dist/${fn}/component.d.cts` },
-          { file: `packages/${name}/dist/${fn}/component.d.mts` },
-          { file: `packages/${name}/dist/${fn}/component.d.ts` }, // for node10 compatibility
         ],
         plugins: [
           pluginDts,

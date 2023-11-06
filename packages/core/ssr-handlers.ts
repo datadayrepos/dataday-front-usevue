@@ -28,9 +28,9 @@ const _global
     : typeof window !== 'undefined'
       ? window
       // eslint-disable-next-line no-restricted-globals
-      : typeof global !== 'undefined'
+      : typeof global !== 'undefined' // <= line 30
         // eslint-disable-next-line no-restricted-globals
-        ? global
+        ? global // <= line 31
         // eslint-disable-next-line no-restricted-globals
         : typeof self !== 'undefined'
           // eslint-disable-next-line no-restricted-globals
@@ -42,7 +42,7 @@ const handlers = /* #__PURE__ */ getHandlers()
 
 function getHandlers() {
   if (!(globalKey in _global))
-    // @ts-expect-error inject global
+    // @ts-expect-error inject global // <= line 43
     _global[globalKey] = _global[globalKey] || {}
   // @ts-expect-error inject global
   return _global[globalKey] as Partial<SSRHandlersMap>
