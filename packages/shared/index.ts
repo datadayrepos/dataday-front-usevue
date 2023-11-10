@@ -1,4 +1,4 @@
-// export * from './computedEager'
+export * from './computedEager'
 // export * from './computedWithControl'
 // export * from './createEventHook'
 // export * from './createGlobalState'
