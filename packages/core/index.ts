@@ -1,4 +1,4 @@
-// export * from './computedAsync'
+export * from './computedAsync'
 //  export * from './computedInject'
 //  export * from './createUnrefFn'//
 export * from './onClickOutside'
