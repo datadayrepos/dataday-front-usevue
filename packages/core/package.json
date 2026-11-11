@@ -33,5 +33,12 @@
   "dependencies": {
     "@datadayrepos/usevueshared": "workspace:*",
     "vue": "^3.3.4"
-  }
+  },
+  "scripts": {
+    "prepack": "node ../../scripts/npm-package.mjs guard",
+    "prepublishOnly": "node ../../scripts/npm-package.mjs guard"
+  },
+  "files": [
+    "dist"
+  ]
 }

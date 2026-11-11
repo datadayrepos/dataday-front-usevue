@@ -49,6 +49,12 @@ async function buildMetaFiles() {
       if (key.startsWith('@datadayrepos/usevue'))
         packageJSON.dependencies[key] = version
     }
+    // Select only publish-ready flat runtime files after the existing version normalization.
+    packageJSON.files = (await fs.readdir(packageDist)).filter(file => /\.(?:[cm]?js|d\.[cm]?ts|json)$/.test(file) || /^(?:LICENSE|LICENCE|NOTICE|COPYING|COPYRIGHT)(?:\.(?:md|txt))?$/i.test(file))
+    packageJSON.scripts = {
+      prepack: 'node ../../../scripts/npm-package.mjs guard',
+      prepublishOnly: 'node ../../../scripts/npm-package.mjs guard',
+    }
     await fs.writeJSON(path.join(packageDist, 'package.json'), packageJSON, { spaces: 2 })
   }
 }

@@ -35,6 +35,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
+      - run: pnpm run pack:release
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
+
       - run: pnpm run publish:ci
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

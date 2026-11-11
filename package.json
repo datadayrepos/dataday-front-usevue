@@ -20,7 +20,10 @@
     "typecheck": "tsc --noEmit",
     "types:fix": "esno scripts/fix-types.ts",
     "update:full": "nr update && nr build:types",
-    "watch": "esno scripts/build-run.ts --watch"
+    "watch": "esno scripts/build-run.ts --watch",
+    "prepack": "node scripts/npm-package.mjs guard",
+    "prepublishOnly": "node scripts/npm-package.mjs guard",
+    "pack:release": "esno scripts/pack-release.ts"
   },
   "devDependencies": {
     "@datadayrepos/eslint-config": "^1.0.1-beta.11",

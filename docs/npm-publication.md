@@ -1,0 +1,5 @@
+# NPM Publication
+
+`pnpm run pack:release` runs the existing clean workspace build and dependency normalization, then stages and verifies separate Shared/Core archives. Optional `--out <directory>` is local only. It does not change source dependency selections, versions or lockfiles.
+
+Source package roots and generated dist roots have raw-publication guards. Runtime JS, declarations, JSON assets and required legal notices are retained; README, Markdown documentation, agents, tests and maps are excluded. `publish:ci` validates every package receipt before publishing any package and consumes the exact verified archives without rebuilding and retains existing public/beta settings. Tag-push CI builds/packs in a separate step before publishing credentials are supplied. Ordinary local publication requires main; the existing GitHub tag workflow permits its detached checkout only when HEAD is exactly the triggering tag. No branch switching is performed. No CI or release operation is authorized by this change.
