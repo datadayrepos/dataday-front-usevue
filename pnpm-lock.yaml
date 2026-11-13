@@ -22,10 +22,10 @@ importers:
         specifier: 0.21.9
         version: 0.21.9
       '@datadayrepos/usevuecore':
-        specifier: 10.5.0-38
+        specifier: 10.5.1
         version: link:packages/core
       '@datadayrepos/usevueshared':
-        specifier: 10.5.0-38
+        specifier: 10.5.1
         version: link:packages/shared
       '@rollup/plugin-json':
         specifier: ^6.0.1
