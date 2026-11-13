@@ -5,6 +5,7 @@ import { spawnSync } from 'node:child_process'
 import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
+import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 
 const workspace = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -30,9 +31,9 @@ export function publicManifest(pkg) {
   assert(pkg.name && pkg.version && pkg.private !== true, 'Expected a publishable named/versioned package.')
   assert(!pkg.bundleDependencies && !pkg.bundledDependencies, 'Bundled dependencies require a separate reviewed profile.')
   const result = Object.fromEntries(fields.filter(key => pkg[key] !== undefined).map(key => [key, pkg[key]]))
-  for (const section of ['dependencies', 'optionalDependencies', 'peerDependencies']) {
+  for (const section of ['dependencies', 'optionalDependencies', 'peerDependencies'])
     for (const spec of Object.values(result[section] || {})) assert(!/^(?:workspace|file|link|catalog):/.test(spec), 'Resolve local dependency protocols through the authoritative publisher first.')
-  }
+
   return result
 }
 
@@ -113,12 +114,12 @@ function checkEntries(pkg, files) {
   for (const key of ['exports', 'imports', 'browser', 'bin', 'typesVersions']) target(pkg[key])
   if (typeof pkg.browser === 'string')
     target(`./${pkg.browser.replace(/^\.\//, '')}`)
-  if (typeof pkg.bin === 'string') {
+  if (typeof pkg.bin === 'string')
     target(`./${pkg.bin.replace(/^\.\//, '')}`)
-  }
-  else {
+
+  else
     for (const name of Object.values(pkg.bin || {})) target(`./${name.replace(/^\.\//, '')}`)
-  }
+
   const typeTargets = (value) => {
     if (Array.isArray(value))
       return value.forEach(typeTargets)

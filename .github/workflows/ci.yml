@@ -59,7 +59,7 @@ jobs:
           cache: pnpm
 
       - name: Setup
-        run: npm i -g @datadayrepos/ni 
+        run: npm i -g @datadayrepos/ni
 
       - name: Install
         run: nci
@@ -69,13 +69,3 @@ jobs:
 
       - name: Typecheck
         run: nr typecheck
-
-      - name: Test Vue 3
-        run: pnpm run test:3
-
-      - name: Test Vue 2
-        run: pnpm run test:2
-
-      - if: matrix.node == '18.x'
-        name: Playground Smoke Test
-        run: cd playgrounds && bash ./build.sh

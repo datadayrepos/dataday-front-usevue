@@ -15,10 +15,8 @@ export async function fixTypes() {
 
   for (const f of files) {
     const raw = await fs.readFile(f, 'utf-8')
-    const changed = raw
-      .replace(/"@vue\/composition-api"/g, '\'vue-demi\'')
-      .replace(/"vue"/g, '\'vue-demi\'')
-      .replace(/'vue'/g, '\'vue-demi\'')
+    // This fork is Vue-3-only; declarations must use its declared runtime dependency.
+    const changed = raw.replace(/(['"])(?:@vue\/composition-api|vue-demi)\1/g, '$1vue$1')
     await fs.writeFile(f, changed, 'utf-8')
   }
 }

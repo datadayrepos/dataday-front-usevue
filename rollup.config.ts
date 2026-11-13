@@ -1,14 +1,16 @@
+import { createRequire } from 'node:module'
 import { resolve } from 'node:path'
 import type { Options as ESBuildOptions } from 'rollup-plugin-esbuild'
 import esbuild from 'rollup-plugin-esbuild'
 import dts from 'rollup-plugin-dts'
 import json from '@rollup/plugin-json'
 import { PluginPure as pure } from 'rollup-plugin-pure'
-import type { OutputOptions, Plugin, RollupOptions } from 'rollup'
+import type { OutputOptions, RollupOptions } from 'rollup'
 import fg from 'fast-glob'
 import { packages } from './meta/packages'
 
 const configs: RollupOptions[] = []
+const require = createRequire(import.meta.url)
 
 const pluginEsbuild = esbuild()
 const pluginDts = dts()
@@ -45,13 +47,19 @@ for (const { globals, name, external, submodules, iife, build, cjs, mjs, dts, ta
   const iifeName = 'VueUse'
   const functionNames = ['index']
 
+  // Restore the original VueUse metadata API without adding a consumer dependency.
+  if (name === 'core')
+    functionNames.push('metadata')
+
   if (submodules)
     functionNames.push(...fg.sync('*/index.ts', { cwd: resolve(`packages/${name}`) }).map(i => i.split('/')[0]))
 
   for (const fn of functionNames) {
-    const input = fn === 'index'
-      ? `packages/${name}/index.ts`
-      : `packages/${name}/${fn}/index.ts`
+    const input = fn === 'metadata'
+      ? require.resolve('@vueuse/metadata/index.mjs')
+      : fn === 'index'
+        ? `packages/${name}/index.ts`
+        : `packages/${name}/${fn}/index.ts`
 
     const output: OutputOptions[] = []
 
@@ -69,7 +77,7 @@ for (const { globals, name, external, submodules, iife, build, cjs, mjs, dts, ta
       })
     }
 
-    if (iife !== false) {
+    if (iife !== false && fn !== 'metadata') {
       output.push(
         {
           file: `packages/${name}/dist/${fn}.iife.js`,
@@ -113,7 +121,7 @@ for (const { globals, name, external, submodules, iife, build, cjs, mjs, dts, ta
 
     if (dts !== false) {
       configs.push({
-        input,
+        input: fn === 'metadata' ? require.resolve('@vueuse/metadata/index.d.ts') : input,
         output: [
           { file: `packages/${name}/dist/${fn}.d.cts` },
           { file: `packages/${name}/dist/${fn}.d.mts` },

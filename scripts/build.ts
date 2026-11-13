@@ -15,6 +15,7 @@ const watch = process.argv.includes('--watch')
 
 const FILES_COPY_ROOT = [
   'LICENSE',
+  'NOTICE',
 ]
 
 const FILES_COPY_LOCAL = [
@@ -61,13 +62,13 @@ async function buildMetaFiles() {
 
 async function build() {
   consola.info('Clean up')
-  exec('pnpm run clean', { stdio: 'inherit' })
+  exec('corepack pnpm run clean', { stdio: 'inherit' })
 
   consola.info('Rollup')
-  exec(`pnpm run build:rollup${watch ? ' -- --watch' : ''}`, { stdio: 'inherit' })
+  exec(`corepack pnpm run build:rollup${watch ? ' -- --watch' : ''}`, { stdio: 'inherit' })
 
   consola.info('Fix types')
-  exec('pnpm run types:fix', { stdio: 'inherit' })
+  exec('corepack pnpm run types:fix', { stdio: 'inherit' })
 
   await buildMetaFiles()
 }

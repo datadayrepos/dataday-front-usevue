@@ -1,7 +1,7 @@
 {
   "name": "@datadayrepos/usevue",
   "type": "module",
-  "version": "10.5.0-38",
+  "version": "10.5.1",
   "private": true,
   "packageManager": "pnpm@8.8.0",
   "description": "Collection of essential Vue Composition Utilities: Light version of original",
@@ -26,11 +26,11 @@
     "pack:release": "esno scripts/pack-release.ts"
   },
   "devDependencies": {
-    "@datadayrepos/eslint-config": "^1.0.1-beta.11",
+    "@datadayrepos/eslint-config": "1.0.3",
     "@datadayrepos/eslint-plugin-datadayrepos": "1.0.0-Beta13",
-    "@datadayrepos/ni": "^0.21.8",
-    "@datadayrepos/usevuecore": "workspace:*",
-    "@datadayrepos/usevueshared": "workspace:*",
+    "@datadayrepos/ni": "0.21.9",
+    "@datadayrepos/usevuecore": "10.5.0-38",
+    "@datadayrepos/usevueshared": "10.5.0-38",
     "@rollup/plugin-json": "^6.0.1",
     "@rollup/plugin-replace": "^5.0.3",
     "@type-challenges/utils": "^0.1.1",
@@ -40,7 +40,7 @@
     "@types/semver": "^7.5.3",
     "@vitest/coverage-v8": "^0.34.6",
     "@vitest/ui": "^0.34.6",
-    "@vue/compiler-sfc": "^3.3.4",
+    "@vue/compiler-sfc": "3.5.13",
     "@vue/test-utils": "^2.4.1",
     "@vueuse/metadata": "^10.5.0",
     "bumpp": "^9.2.0",
@@ -71,7 +71,7 @@
     "taze": "^0.11.3",
     "typescript": "5.2.2",
     "vite": "^4.4.11",
-    "vue": "^3.3.4"
+    "vue": "3.5.13"
   },
   "pnpm": {
     "overrides": {

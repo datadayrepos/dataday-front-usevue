@@ -1,6 +1,6 @@
 {
   "name": "@datadayrepos/usevuecore",
-  "version": "10.5.0-38",
+  "version": "10.5.1",
   "description": "Collection of essential Vue Composition Utilities: Light version of original",
   "license": "MIT",
   "repository": {
@@ -30,15 +30,15 @@
   "unpkg": "./index.iife.min.js",
   "jsdelivr": "./index.iife.min.js",
   "types": "./index.d.cts",
-  "dependencies": {
-    "@datadayrepos/usevueshared": "workspace:*",
-    "vue": "^3.3.4"
-  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prepack": "node ../../scripts/npm-package.mjs guard",
     "prepublishOnly": "node ../../scripts/npm-package.mjs guard"
   },
-  "files": [
-    "dist"
-  ]
+  "dependencies": {
+    "@datadayrepos/usevueshared": "workspace:*",
+    "vue": "3.5.13"
+  }
 }

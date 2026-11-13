@@ -3,7 +3,9 @@
 import { ref } from 'vue'
 import type { Ref } from 'vue'
 
-import { createSingletonPromise } from '@datadayrepos/usevueshared' // shared
+import { createSingletonPromise } from '@datadayrepos/usevueshared'
+
+// shared
 import { useEventListener } from '../useEventListener'
 import { defaultNavigator } from '../_configurable'
 import { useSupported } from '../useSupported'
