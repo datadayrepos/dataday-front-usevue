@@ -13,19 +13,19 @@ importers:
   .:
     devDependencies:
       '@datadayrepos/eslint-config':
-        specifier: 1.0.3
-        version: 1.0.3(eslint@8.51.0)(typescript@5.2.2)(vitest@0.34.6)
+        specifier: 1.0.4
+        version: 1.0.4(eslint@8.51.0)(typescript@5.2.2)(vitest@0.34.6)
       '@datadayrepos/eslint-plugin-datadayrepos':
         specifier: 1.0.0-Beta13
         version: 1.0.0-Beta13(eslint@8.51.0)(typescript@5.2.2)
       '@datadayrepos/ni':
-        specifier: 0.21.9
-        version: 0.21.9
+        specifier: 0.21.10
+        version: 0.21.10
       '@datadayrepos/usevuecore':
-        specifier: 10.5.1
+        specifier: 10.5.2
         version: link:packages/core
       '@datadayrepos/usevueshared':
-        specifier: 10.5.1
+        specifier: 10.5.2
         version: link:packages/shared
       '@rollup/plugin-json':
         specifier: ^6.0.1
@@ -332,8 +332,8 @@ packages:
     dev: true
     optional: true
 
-  /@datadayrepos/eslint-config@1.0.3(eslint@8.51.0)(typescript@5.2.2)(vitest@0.34.6):
-    resolution: {integrity: sha512-s7M4LiR7wZqY78wh1IzHHldzrZhHH2TnpB7jccS4zVUbMaghpHfzlSzPhbcGKe2FKcryhpS+2hLIzbhQ3WSfHA==}
+  /@datadayrepos/eslint-config@1.0.4(eslint@8.51.0)(typescript@5.2.2)(vitest@0.34.6):
+    resolution: {integrity: sha512-DbtOzkE3Y26TvLMmC9pzy9xxNuHOEDqOYtEpcMOpznM1EJ+NV++vNSkafQAHSRtAKv17wFRJbyLrEvp3NNZzfQ==}
     peerDependencies:
       eslint: '>=8.0.0'
     dependencies:
@@ -386,8 +386,8 @@ packages:
       - typescript
     dev: true
 
-  /@datadayrepos/ni@0.21.9:
-    resolution: {integrity: sha512-DJAcsmDaj0ob3XP1p1/83wdDr0LAt92aSxn+kxZbvgdSnRdqZkoWlo8qrvBNQRFI/n2HXj/epMVBh4mt3Wxs0w==}
+  /@datadayrepos/ni@0.21.10:
+    resolution: {integrity: sha512-CvMC3YGSePnbFqzB1dWOvcvfl/fxp/kPhQ1C4prajS4IUw2FIful0mSc0HkDGYPgrhR4SiixGyzzApjnenCKbw==}
     hasBin: true
     dev: true
 
