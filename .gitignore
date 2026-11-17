@@ -20,3 +20,4 @@ coverage
 .eslintcache
 .vitepress/cache
 /.npm-package/
+dependency-update-report.md
